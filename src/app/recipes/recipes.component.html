@@ -1,8 +1,10 @@
 <div class="row">
     <div class="col-md-5">
-        <rb-recipe-list (recipeSelected)="selectedRecipe=$event"></rb-recipe-list>
+        <!--<rb-recipe-list (recipeSelected)="selectedRecipe=$event"></rb-recipe-list>-->
+        <rb-recipe-list></rb-recipe-list>
     </div>
     <div class="col-md-7">
-        <rb-recip-detail [selectedRecipe]="selectedRecipe"></rb-recip-detail>
+        <!--<rb-recip-detail [selectedRecipe]="selectedRecipe"></rb-recip-detail>-->
+        <router-outlet></router-outlet>
     </div>
 </div>
