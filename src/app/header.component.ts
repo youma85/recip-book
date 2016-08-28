@@ -1,18 +1,28 @@
-import { Component, OnInit } from '@angular/core';
-import {ROUTER_DIRECTIVES} from '@angular/router';
-import {DropdownDirectives} from "./dropdown.directive";
+import { Component } from '@angular/core';
+import { ROUTER_DIRECTIVES } from "@angular/router";
+
+import { DropdownDirectives } from "./dropdown.directive";
+import { RecipeService } from "./recipes/recipe.service";
 
 @Component({
   moduleId: module.id,
   selector: 'rb-header',
   templateUrl: 'header.component.html',
-  directives:[DropdownDirectives,ROUTER_DIRECTIVES]
+  directives: [DropdownDirectives, ROUTER_DIRECTIVES]
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent {
 
-  constructor() { }
+  constructor(private recipeService: RecipeService) {}
 
-  ngOnInit() {
+  onStore() {
+    this.recipeService.storeData().subscribe(
+      data => console.log(data),
+      error => console.error(error)
+    );
+  }
+
+  onFetch() {
+    this.recipeService.fetchData();
   }
 
 }
